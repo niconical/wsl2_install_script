@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 HOSTS_FILE_WIN='/mnt/c/Windows/System32/drivers/etc/hosts'
 inetIp=`ifconfig eth0 | grep -o "inet [0-9]*\.[0-9]*\.[0-9]*\.[0-9]*  netmask" | cut -f 2 -d " "`
 
