@@ -14,6 +14,7 @@ sudo apt install -y zsh
 sudo apt install -y autojump
 sudo apt install -y fonts-powerline
 sudo apt install -y tmux
+sudo apt install -y build-essential 
 
 # github CLI 
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
