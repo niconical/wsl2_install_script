@@ -69,3 +69,11 @@ echo 'cuih ALL = (root) NOPASSWD: /etc/init.d/dbus' >> /etc/sudoers.d/dbus
 # node support
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | $SHELL
 nvm install --lts
+
+
+# yarn support
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+sudo apt update
+sudo apt install --no-install-recommends yarn
