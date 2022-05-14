@@ -64,7 +64,7 @@ sudo /etc/init.d/dbus start &> /dev/null
 
 sudo touch /etc/sudoers.d/dbus
 echo 'cuih ALL = (root) NOPASSWD: /etc/init.d/dbus' >> /etc/sudoers.d/dbus
-
+# then install x-server on windows and allow x-server cross firewall
 
 # node support
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | $SHELL
