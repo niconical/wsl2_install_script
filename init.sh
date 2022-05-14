@@ -57,9 +57,10 @@ sudo apt install -y tasksel
 sudo tasksel install xubuntu-desktop
 sudo apt install gtk2-engines
 
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+
+export DISPLAY="$(grep nameserver /etc/resolv.conf | sed 's/nameserver //'):0"
 export LIBGL_ALWAYS_INDIRECT=1
 sudo /etc/init.d/dbus start &> /dev/null
 
 sudo touch /etc/sudoers.d/dbus
-echo 'your_user_name ALL = (root) NOPASSWD: /etc/init.d/dbus' >> /etc/sudoers.d/dbus
+echo 'cuih ALL = (root) NOPASSWD: /etc/init.d/dbus' >> /etc/sudoers.d/dbus
