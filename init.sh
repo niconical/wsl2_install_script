@@ -45,3 +45,21 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 echo 'source $HOME/.cargo/env' >> ~/.zshrc
 
 # ref: https://yangchnet.github.io/Dessert/posts/env/wsl2-%E4%B8%8D%E8%BE%93mac%E7%9A%84%E5%BC%80%E5%8F%91%E4%BD%93%E9%AA%8C%E4%BA%8Cwsl2%E7%9A%84%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/
+
+# WSLg support
+
+sudo apt install net-tools
+sudo apt install xrdp -y && sudo systemctl enable xrdp
+
+sudo sed -i "s/^ *PRUNEFS *= *[\"']/&drvfs 9p /" /etc/updatedb.conf
+
+sudo apt install -y tasksel
+sudo tasksel install xubuntu-desktop
+sudo apt install gtk2-engines
+
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+export LIBGL_ALWAYS_INDIRECT=1
+sudo /etc/init.d/dbus start &> /dev/null
+
+sudo touch /etc/sudoers.d/dbus
+echo 'your_user_name ALL = (root) NOPASSWD: /etc/init.d/dbus' >> /etc/sudoers.d/dbus
