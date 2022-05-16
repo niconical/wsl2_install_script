@@ -77,3 +77,7 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 
 sudo apt update
 sudo apt install --no-install-recommends yarn
+
+# history time&date
+echo 'export HISTTIMEFORMAT="%d/%m/%y %T "' >> ~/.zshrc
+source ~/.zshrc
